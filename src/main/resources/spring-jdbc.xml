@@ -31,5 +31,5 @@
     <tx:annotation-driven transaction-manager="transactionManager" />
 
     <!--自动扫描指定路径下的包（含所有子包）-->
-    <context:component-scan base-package="jdbc"/>
+    <context:component-scan base-package="me.jiawei.study.web"/>
 </beans>
