@@ -33,7 +33,6 @@ public class HelloWorldServlet extends HttpServlet {
         LOG.debug("HelloWorldServlet.doPost");
         String id = req.getParameter("id");
         String name = req.getParameter("name");
-        System.out.println(id);
         PrintWriter out = resp.getWriter();
         out.printf("id:%s, name:%s",id,name);
         out.flush();
