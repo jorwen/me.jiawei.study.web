@@ -14,12 +14,12 @@ public class HelloWorldServlet extends HttpServlet {
     private static final Logger LOG = LoggerFactory.getLogger(HelloWorldServlet.class);
 
     public void init() throws ServletException {
-        LOG.debug("HelloWorldServlet.init");
+        LOG.debug("初始化Servlet");
     }
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        LOG.debug("HelloWorldServlet.doGet");
+        LOG.debug("doGet");
         String id = req.getParameter("id");
         String name = req.getParameter("name");
         PrintWriter out = resp.getWriter();
@@ -30,16 +30,17 @@ public class HelloWorldServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        LOG.debug("HelloWorldServlet.doPost");
+        LOG.debug("doPost");
         String id = req.getParameter("id");
         String name = req.getParameter("name");
+        String aaa = (String)req.getAttribute("aaa");
         PrintWriter out = resp.getWriter();
-        out.printf("id:%s, name:%s",id,name);
+        out.printf("id:%s, name:%s, aaa:%s" ,id,name,aaa);
         out.flush();
         out.close();
     }
 
     public void destroy() {
-        LOG.debug("HelloWorldServlet.destroy");
+        LOG.debug("销毁Servlet");
     }
 }
