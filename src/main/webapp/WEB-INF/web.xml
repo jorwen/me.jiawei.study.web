@@ -4,7 +4,7 @@
          xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          id="WebApp_ID" version="3.0">
-    <!--公共参数-->
+    <!--Log4j-->
     <context-param>
         <param-name>log4jConfigLocation</param-name>
         <param-value>/WEB-INF/classes/log4j2.xml</param-value>
@@ -14,6 +14,7 @@
     <servlet>
         <servlet-name>helloWorld</servlet-name>
         <servlet-class>me.jiawei.study.web.HelloWorldServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
@@ -21,8 +22,11 @@
         <url-pattern>/helloWorld</url-pattern>
     </servlet-mapping>
 
-    <!--监听器-->
     <!--Spring-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring/*.xml</param-value>
+    </context-param>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
